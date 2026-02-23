@@ -3,121 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pied Diabétique - Portfolio Médical de Gumbs Evan</title>
+<title>Le Pied Diabétique – Gumbs Evan</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-
-body{
-font-family:'Poppins',sans-serif;
-background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
-color:#222;
-scroll-behavior:smooth;
-}
-
-header{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-color:white;
-background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-url('https://upload.wikimedia.org/wikipedia/commons/3/3e/Insulin_and_glucose.png');
-background-size:cover;
-background-position:center;
-}
-
-header h1{font-size:60px;}
-header p{margin-top:20px;font-size:22px;font-weight:300;}
-
-nav{
-position:sticky;
-top:0;
-background:#0f2027;
-padding:15px;
-text-align:center;
-}
-
-nav a{
-color:white;
-margin:0 15px;
-text-decoration:none;
-font-weight:500;
-}
-
+body{font-family:'Poppins',sans-serif;background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);color:white;line-height:1.7;scroll-behavior:smooth;}
+header{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url("https://images.unsplash.com/photo-1580281657521-21c87e7e4f1e") center/cover;}
+header h1{font-size:2.2rem;animation:fadeDown 1.5s ease forwards;}
+header p{margin-top:15px;font-size:1rem;opacity:0;animation:fadeUp 2s ease forwards;}
+nav{position:sticky;top:0;background:#0f2027;padding:15px;text-align:center;z-index:1000;}
+nav a{color:white;margin:0 15px;text-decoration:none;font-weight:500;transition:0.3s;}
 nav a:hover{color:#00ffc8;}
-
-section{
-background:white;
-width:85%;
-margin:80px auto;
-padding:70px;
-border-radius:25px;
-box-shadow:0 30px 60px rgba(0,0,0,0.3);
-}
-
-h2{
-color:#1e3c72;
-margin-bottom:30px;
-font-size:30px;
-}
-
-.card{
-background:#f4f7f9;
-padding:25px;
-border-radius:15px;
-margin:20px 0;
-}
-
-img{
-width:100%;
-max-width:750px;
-display:block;
-margin:40px auto;
-border-radius:20px;
-box-shadow:0 20px 40px rgba(0,0,0,0.2);
-}
-
-table{
-width:100%;
-border-collapse:collapse;
-margin-top:20px;
-}
-
-th, td{
-padding:14px;
-border:1px solid #ddd;
-}
-
-th{
-background:#1e3c72;
-color:white;
-}
-
-footer{
-text-align:center;
-color:white;
-padding:40px;
-background:#0f2027;
-}
-
-.signature{
-margin-top:20px;
-font-weight:600;
-font-size:18px;
-}
+section{padding:50px 20px;max-width:900px;margin:auto;opacity:0;transform:translateY(40px);transition:all 1s ease;}
+section.visible{opacity:1;transform:translateY(0);}
+h2{margin-bottom:20px;font-weight:600;border-left:4px solid #00d4ff;padding-left:10px;}
+img{width:100%;border-radius:12px;margin:20px 0;box-shadow:0 10px 20px rgba(0,0,0,0.2);}
+.card{background:rgba(255,255,255,0.05);padding:25px;border-radius:15px;backdrop-filter:blur(8px);margin:20px 0;transition:transform 0.3s;}
+.card:hover{transform:translateY(-5px);}
+table{width:100%;border-collapse:collapse;margin-top:20px;color:white;}
+th,td{padding:12px;border:1px solid #ddd;text-align:left;}
+th{background:#1e3c72;color:white;}
+#topButton{position:fixed;bottom:30px;right:20px;padding:12px 16px;background:#00d4ff;color:#0f2027;font-weight:600;border:none;border-radius:8px;cursor:pointer;display:none;z-index:1000;transition:0.3s;}
+#topButton:hover{background:#00b894;}
+footer{text-align:center;padding:30px;background:rgba(0,0,0,0.4);margin-top:50px;}
+.signature{margin-top:20px;font-weight:600;font-size:18px;}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-40px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
+@media(max-width:768px){header h1{font-size:1.8rem;}header p{font-size:0.95rem;}}
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>Pied Diabétique</h1>
-<p>Approche physiopathologique et clinique – <strong>Gumbs Evan</strong> – Étudiant en Médecine (DFGSM3)</p>
+<h1>Le Pied Diabétique</h1>
+<p>Site pédagogique réalisé par <strong>Gumbs Evan – Étudiant en médecine</strong></p>
 </header>
 
 <nav>
@@ -127,154 +49,120 @@ font-size:18px;
 <a href="#clinique">Clinique</a>
 <a href="#classification">Classification</a>
 <a href="#prise">Prise en charge</a>
+<a href="#prevention">Prévention</a>
 <a href="#auteur">Auteur</a>
 </nav>
 
 <section id="bases">
+<div class="card">
 <h2>1. Bases physiologiques</h2>
-
-<div class="card">
-Le glucose constitue le principal substrat énergétique cellulaire.  
-Son entrée dans la cellule dépend de l’insuline, hormone sécrétée par les cellules β des îlots de Langerhans.
+<p>Le glucose est le carburant principal des cellules. L’insuline, hormone du pancréas, permet son entrée dans les cellules pour produire de l’énergie.</p>
+<img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5">
 </div>
-
-<div class="card">
-L’insuline permet la captation périphérique du glucose et la régulation de la glycémie.
-</div>
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Insulin_and_glucose.png">
-
 </section>
 
 <section id="diabete">
-<h2>2. Le diabète sucré</h2>
-
 <div class="card">
-Le diabète est défini par une hyperglycémie chronique résultant :
-- d’une carence absolue en insuline (DT1)
-- d’une insulinorésistance associée à un déficit relatif (DT2)
+<h2>2. Qu’est-ce que le diabète ?</h2>
+<p>Le diabète est une maladie chronique caractérisée par un excès de sucre dans le sang. Il existe :</p>
+<ul>
+<li>Diabète type 1 : déficit en insuline</li>
+<li>Diabète type 2 : insulino-résistance + déficit relatif</li>
+</ul>
+<p>L’hyperglycémie persistante endommage les petits vaisseaux (microangiopathie) et les gros vaisseaux (macroangiopathie).</p>
 </div>
-
-<div class="card">
-L’hyperglycémie chronique entraîne :
-- Glycation non enzymatique des protéines (AGEs)
-- Stress oxydatif
-- Dysfonction endothéliale
-- Microangiopathie et macroangiopathie
-</div>
-
 </section>
 
 <section id="physiopath">
+<div class="card">
 <h2>3. Physiopathologie du pied diabétique</h2>
-
-<div class="card">
-Le pied diabétique résulte de l’association de trois mécanismes :
+<p>Le pied diabétique résulte de la combinaison :</p>
+<ul>
+<li>Neuropathie périphérique (perte de sensation, déformations)</li>
+<li>Artériopathie oblitérante (mauvaise circulation)</li>
+<li>Infection secondaire</li>
+</ul>
+<img src="https://images.unsplash.com/photo-1597764699512-8a3bce07e3f5">
 </div>
-
-<div class="card">
-<strong>Neuropathie périphérique :</strong><br>
-- Atteinte sensitive → perte de la douleur protectrice  
-- Atteinte motrice → déséquilibre musculaire → déformations (orteils en griffe)  
-- Atteinte autonome → sécheresse cutanée → fissures
-</div>
-
-<div class="card">
-<strong>Artériopathie oblitérante des membres inférieurs :</strong><br>
-- Athérosclérose distale  
-- Hypoperfusion tissulaire  
-- Retard de cicatrisation
-</div>
-
-<div class="card">
-<strong>Infection :</strong><br>
-- Porte d’entrée cutanée  
-- Extension possible aux tissus profonds  
-- Risque d’ostéite et de sepsis
-</div>
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Diabetic_foot_ulcer.jpg">
-
 </section>
 
 <section id="clinique">
+<div class="card">
 <h2>4. Démarche clinique</h2>
-
-<div class="card">
-Inspection : localisation de l’ulcère, profondeur, nécrose, écoulement.
+<p>Inspection : localisation, profondeur, nécrose, écoulement.</p>
+<p>Palpation : pouls pédieux et tibial postérieur.</p>
+<p>Tests neurologiques : monofilament 10g pour la sensibilité.</p>
+<p>Évaluer ostéite : test du contact osseux et imagerie si nécessaire.</p>
 </div>
-
-<div class="card">
-Palpation des pouls pédieux et tibial postérieur.
-</div>
-
-<div class="card">
-Évaluation neurologique : test au monofilament 10g.
-</div>
-
-<div class="card">
-Recherche d’atteinte osseuse : test du contact osseux.
-</div>
-
 </section>
 
 <section id="classification">
+<div class="card">
 <h2>5. Classification de Wagner</h2>
-
-<table>
-<tr><th>Grade</th><th>Description</th></tr>
-<tr><td>0</td><td>Pas d’ulcère</td></tr>
-<tr><td>1</td><td>Ulcère superficiel</td></tr>
-<tr><td>2</td><td>Ulcère profond</td></tr>
-<tr><td>3</td><td>Ostéite ou abcès</td></tr>
-<tr><td>4</td><td>Gangrène localisée</td></tr>
-<tr><td>5</td><td>Gangrène étendue</td></tr>
-</table>
-
+<ul>
+<li>0 : pied à risque</li>
+<li>1 : ulcère superficiel</li>
+<li>2 : ulcère profond (tendon/capsule)</li>
+<li>3 : ostéite ou abcès</li>
+<li>4 : gangrène localisée</li>
+<li>5 : gangrène étendue</li>
+</ul>
+</div>
 </section>
 
 <section id="prise">
+<div class="card">
 <h2>6. Prise en charge</h2>
-
-<div class="card">
-Décharge mécanique immédiate.
+<ul>
+<li>Décharge mécanique immédiate</li>
+<li>Débridement chirurgical</li>
+<li>Antibiothérapie adaptée</li>
+<li>Revascularisation si ischémie critique</li>
+<li>Contrôle glycémique strict</li>
+</ul>
 </div>
+</section>
 
+<section id="prevention">
 <div class="card">
-Antibiothérapie probabiliste adaptée secondairement aux prélèvements.
+<h2>7. Prévention</h2>
+<ul>
+<li>Inspection quotidienne des pieds</li>
+<li>Hydratation cutanée</li>
+<li>Coupe correcte des ongles</li>
+<li>Chaussure adaptée</li>
+<li>Consultation rapide en cas de plaie</li>
+</ul>
 </div>
-
-<div class="card">
-Parage chirurgical des tissus nécrotiques.
-</div>
-
-<div class="card">
-Revascularisation en cas d’ischémie critique.
-</div>
-
-<div class="card">
-Optimisation du contrôle glycémique.
-</div>
-
 </section>
 
 <section id="auteur">
+<div class="card">
 <h2>À propos de l’auteur</h2>
-
-<p>
-Ce site a été conçu et structuré par <strong>Gumbs Evan</strong>,
-étudiant en troisième année de médecine.
-</p>
-
-<div class="signature">
-© 2026 – Gumbs Evan – Portfolio Médical
+<p>Ce site a été conçu et structuré par <strong>Gumbs Evan</strong>, étudiant en médecine DFGSM3. Il sert de support pédagogique pour le stage en service pied diabétique.</p>
+<div class="signature">© 2026 – Gumbs Evan</div>
 </div>
-
 </section>
 
+<button id="topButton" onclick="window.scrollTo({top:0, behavior:'smooth'})">Haut ↑</button>
+
 <footer>
-Portfolio Médical – Gumbs Evan
+Portfolio pédagogique – Gumbs Evan
 </footer>
+
+<script>
+const sections=document.querySelectorAll("section");
+window.addEventListener("scroll",()=>{
+sections.forEach(section=>{
+if(section.getBoundingClientRect().top<window.innerHeight-100){
+section.classList.add("visible");
+}
+});
+const topButton=document.getElementById("topButton");
+if(window.scrollY>300){topButton.style.display="block";}
+else{topButton.style.display="none";}
+});
+</script>
 
 </body>
 </html>
