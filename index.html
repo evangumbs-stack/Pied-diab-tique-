@@ -3,31 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pied Diabétique Interactif – Gumbs Evan</title>
-
+<title>Pied Diabétique Clinique – Gumbs Evan</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Poppins',sans-serif;background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);color:white;line-height:1.7;}
-header{height:60vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('https://images.unsplash.com/photo-1580281657521-21c87e7e4f1e') center/cover;background-size:cover;}
+header{height:60vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('https://upload.wikimedia.org/wikipedia/commons/3/3b/Diabetic_foot_ulcer.jpg') center/cover;background-size:cover;}
 header h1{font-size:2.2rem;animation:fadeDown 1.5s ease forwards;}
 header p{margin-top:15px;font-size:1rem;opacity:0;animation:fadeUp 2s ease forwards;}
-nav{position:sticky;top:0;background:#0f2027;padding:15px;text-align:center;z-index:1000;}
-nav a{color:white;margin:0 10px;text-decoration:none;font-weight:500;transition:0.3s;}
+nav{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.6);padding:10px 20px;border-radius:20px;z-index:1000;display:flex;gap:15px;}
+nav a{color:white;text-decoration:none;font-weight:500;transition:0.3s;}
 nav a:hover{color:#00ffc8;}
-.container{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;padding:30px;}
-.card{background:rgba(255,255,255,0.05);padding:25px;border-radius:15px;backdrop-filter:blur(8px);cursor:pointer;flex:1 1 300px;transition:transform 0.3s, background 0.3s;}
-.card:hover{transform:translateY(-5px);background:rgba(255,255,255,0.1);}
+.container{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;padding:30px;margin-top:100px;}
+.card{background:rgba(255,255,255,0.05);padding:25px;border-radius:15px;backdrop-filter:blur(8px);cursor:pointer;flex:1 1 300px;transition:transform 0.4s, background 0.4s, opacity 0.6s;opacity:0;transform:translateY(40px);}
+.card.show{opacity:1;transform:translateY(0);}
+.card:hover{transform:scale(1.05);}
 h2{margin-bottom:15px;font-weight:600;border-left:4px solid #00d4ff;padding-left:10px;}
-img{width:100%;border-radius:12px;margin:20px 0;box-shadow:0 10px 20px rgba(0,0,0,0.2);}
-footer{text-align:center;padding:30px;background:rgba(0,0,0,0.4);margin-top:50px;}
-.signature{margin-top:20px;font-weight:600;font-size:18px;}
-/* Modal */
-.modal{display:none;position:fixed;z-index:2000;left:0;top:0;width:100%;height:100%;overflow:auto;background:rgba(0,0,0,0.8);}
-.modal-content{background:#fff;color:#222;margin:10% auto;padding:20px;border-radius:15px;width:90%;max-width:700px;position:relative;animation:fadeIn 0.5s;}
+img{width:100%;border-radius:12px;margin:15px 0;box-shadow:0 10px 20px rgba(0,0,0,0.2);transition:transform 0.3s;}
+img:hover{transform:scale(1.05);}
+.modal{display:none;position:fixed;z-index:2000;left:0;top:0;width:100%;height:100%;overflow:auto;background:rgba(0,0,0,0.85);}
+.modal-content{background:#fff;color:#222;margin:5% auto;padding:20px;border-radius:15px;width:90%;max-width:750px;position:relative;animation:fadeIn 0.5s;overflow-y:auto;max-height:90vh;}
 .close{color:#333;position:absolute;top:15px;right:20px;font-size:28px;font-weight:bold;cursor:pointer;}
 .close:hover{color:#00d4ff;}
+footer{text-align:center;padding:30px;background:rgba(0,0,0,0.4);margin-top:50px;}
+.signature{margin-top:20px;font-weight:600;font-size:18px;}
 @keyframes fadeDown{from{opacity:0;transform:translateY(-40px);}to{opacity:1;transform:translateY(0);}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
 @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
@@ -37,60 +36,67 @@ footer{text-align:center;padding:30px;background:rgba(0,0,0,0.4);margin-top:50px
 <body>
 
 <header>
-<h1>Pied Diabétique Interactif</h1>
-<p>Site pédagogique réalisé par <strong>Gumbs Evan – Étudiant en médecine</strong></p>
+<h1>Pied Diabétique Clinique</h1>
+<p>Site interactif réalisé par <strong>Gumbs Evan – Étudiant en médecine</strong></p>
 </header>
 
 <nav>
-<a href="#container">Aller aux sections</a>
+<a href="#bases">Bases</a>
+<a href="#diabete">Diabète</a>
+<a href="#physiopath">Physiopathologie</a>
+<a href="#clinique">Clinique</a>
+<a href="#classification">Classification</a>
+<a href="#prise">Prise en charge</a>
+<a href="#prevention">Prévention</a>
 </nav>
 
-<div class="container" id="container">
+<div class="container">
 
 <div class="card" data-modal="modal1">
 <h2>Bases physiologiques</h2>
-<p>Comprendre le glucose et l’insuline.</p>
+<p>Le glucose est le carburant principal des cellules. L’insuline permet son entrée pour produire de l’énergie. Une déficience entraîne hyperglycémie et complications métaboliques.</p>
 </div>
 
 <div class="card" data-modal="modal2">
 <h2>Diabète</h2>
-<p>Types et conséquences principales.</p>
+<p>Le diabète type 1 résulte d’un déficit absolu d’insuline. Le type 2 combine insulinorésistance et déficit relatif. L’hyperglycémie chronique affecte micro et macro-vaisseaux.</p>
 </div>
 
 <div class="card" data-modal="modal3">
-<h2>Physiopathologie du pied</h2>
-<p>Neuropathie, artériopathie, infection.</p>
+<h2>Physiopathologie</h2>
+<p>Le pied diabétique est lié à la neuropathie (sensation diminuée, déformations), à l’ischémie (retard cicatrisation) et aux infections secondaires (risque d’ostéite et gangrène).</p>
 </div>
 
 <div class="card" data-modal="modal4">
 <h2>Démarche clinique</h2>
-<p>Examen et tests essentiels.</p>
+<p>Inspection du pied, palpation des pouls pédieux/tibial postérieur, test du monofilament 10g pour la sensibilité, évaluation de l’ostéite (contact osseux + imagerie si nécessaire).</p>
 </div>
 
 <div class="card" data-modal="modal5">
 <h2>Classification</h2>
-<p>Grade selon Wagner.</p>
+<p>La classification de Wagner permet d’évaluer la gravité : 0 = pied à risque, 1 = ulcère superficiel, 2 = ulcère profond, 3 = ostéite/abcès, 4 = gangrène localisée, 5 = gangrène étendue.</p>
 </div>
 
 <div class="card" data-modal="modal6">
 <h2>Prise en charge</h2>
-<p>Décharge, chirurgie, antibiothérapie.</p>
+<p>Inclut décharge mécanique, débridement chirurgical, antibiothérapie adaptée, revascularisation si ischémie sévère et équilibre glycémique strict.</p>
 </div>
 
 <div class="card" data-modal="modal7">
 <h2>Prévention</h2>
-<p>Éducation thérapeutique et soins quotidiens.</p>
+<p>Inspection quotidienne, hydratation cutanée, chaussures adaptées, consultation rapide en cas de plaie. L’éducation du patient est cruciale.</p>
 </div>
 
 </div>
 
-<!-- Modals -->
+<!-- Modals avec images cliniques fiables -->
 <div id="modal1" class="modal">
 <div class="modal-content">
 <span class="close">&times;</span>
 <h2>Bases physiologiques</h2>
-<p>Le glucose est le carburant des cellules. L’insuline permet son entrée pour produire de l’énergie.</p>
+<p>Le glucose est le carburant principal des cellules. L’insuline permet son entrée pour produire de l’énergie. Sans insuline, hyperglycémie chronique et complications métaboliques.</p>
 <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Insulin_and_glucose.png" alt="Insuline et glucose">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/27/Blood_glucose_levels.png" alt="Niveaux de glucose sanguin">
 </div>
 </div>
 
@@ -98,26 +104,19 @@ footer{text-align:center;padding:30px;background:rgba(0,0,0,0.4);margin-top:50px
 <div class="modal-content">
 <span class="close">&times;</span>
 <h2>Le diabète</h2>
-<p>Hyperglycémie chronique causée par :</p>
-<ul>
-<li>Diabète type 1 : déficit en insuline</li>
-<li>Diabète type 2 : insulino-résistance + déficit relatif</li>
-</ul>
+<p>Type 1 : déficit absolu d’insuline. Type 2 : insulinorésistance + déficit relatif. Hyperglycémie chronique → complications microangiopathiques et macroangiopathiques.</p>
 <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Diabetes_type1_and_type2.png" alt="Diabète type 1 et 2">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Complications_diabetes.jpg" alt="Complications diabète">
 </div>
 </div>
 
 <div id="modal3" class="modal">
 <div class="modal-content">
 <span class="close">&times;</span>
-<h2>Physiopathologie du pied diabétique</h2>
-<p>Association de :</p>
-<ul>
-<li>Neuropathie → perte de sensibilité, déformations</li>
-<li>Artériopathie → hypoperfusion, retard de cicatrisation</li>
-<li>Infection → risque d’ostéite et gangrène</li>
-</ul>
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Diabetic_foot_ulcer.jpg" alt="Ulcère du pied diabétique">
+<h2>Physiopathologie pied diabétique</h2>
+<p>Neuropathie → perte de sensation et déformations, Artériopathie → hypoperfusion, Infection → ostéite et gangrène.</p>
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Diabetic_foot_ulcer.jpg" alt="Ulcère pied diabétique">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Diabetic_foot_care.jpg" alt="Soins pied diabétique">
 </div>
 </div>
 
@@ -127,23 +126,24 @@ footer{text-align:center;padding:30px;background:rgba(0,0,0,0.4);margin-top:50px
 <h2>Démarche clinique</h2>
 <ul>
 <li>Inspection : localisation, profondeur, nécrose</li>
-<li>Palpation : pouls pédieux et tibial postérieur</li>
-<li>Tests neurologiques : monofilament 10g</li>
-<li>Ostéite : test du contact osseux / imagerie</li>
+<li>Palpation : pouls pédieux / tibial postérieur</li>
+<li>Test sensibilité : monofilament 10g</li>
+<li>Évaluer ostéite : contact osseux + imagerie</li>
 </ul>
-<img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Diabetic_foot_exam.jpg" alt="Examen du pied diabétique">
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Diabetic_foot_exam.jpg" alt="Examen pied diabétique">
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Foot_sensation_test.jpg" alt="Test sensibilité pied">
 </div>
 </div>
 
 <div id="modal5" class="modal">
 <div class="modal-content">
 <span class="close">&times;</span>
-<h2>Classification de Wagner</h2>
+<h2>Classification Wagner</h2>
 <ul>
 <li>0 : pied à risque</li>
 <li>1 : ulcère superficiel</li>
 <li>2 : ulcère profond (tendon/capsule)</li>
-<li>3 : ostéite ou abcès</li>
+<li>3 : ostéite / abcès</li>
 <li>4 : gangrène localisée</li>
 <li>5 : gangrène étendue</li>
 </ul>
@@ -163,6 +163,7 @@ footer{text-align:center;padding:30px;background:rgba(0,0,0,0.4);margin-top:50px
 <li>Contrôle glycémique strict</li>
 </ul>
 <img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Diabetic_foot_care.jpg" alt="Prise en charge pied diabétique">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/27/Blood_glucose_levels.png" alt="Surveillance glycémie">
 </div>
 </div>
 
@@ -172,42 +173,46 @@ footer{text-align:center;padding:30px;background:rgba(0,0,0,0.4);margin-top:50px
 <h2>Prévention</h2>
 <ul>
 <li>Inspection quotidienne</li>
-<li>Hydratation et soins cutanés</li>
+<li>Hydratation cutanée</li>
 <li>Chaussures adaptées</li>
 <li>Consultation rapide en cas de plaie</li>
 </ul>
 <img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Foot_care_diabetes.jpg" alt="Prévention pied diabétique">
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Diabetes_patient_education.jpg" alt="Éducation patient">
 </div>
 </div>
 
 <footer>
-© 2026 – Site interactif pédagogique – <strong>Gumbs Evan</strong>
+© 2026 – Site interactif clinique – <strong>Gumbs Evan</strong>
 </footer>
 
 <script>
-// Gestion des modals
+// Modals
 const cards=document.querySelectorAll(".card");
 const modals=document.querySelectorAll(".modal");
 const closes=document.querySelectorAll(".close");
 
 cards.forEach(card=>{
 card.addEventListener("click",()=>{
-let modal=document.getElementById(card.dataset.modal);
-modal.style.display="block";
+document.getElementById(card.dataset.modal).style.display="block";
 });
 });
 
-closes.forEach(span=>{
-span.addEventListener("click",()=>{
-span.parentElement.parentElement.style.display="none";
-});
+closes.forEach(c=>{
+c.addEventListener("click",()=>{c.parentElement.parentElement.style.display="none";});
 });
 
 window.addEventListener("click",(e)=>{
-modals.forEach(modal=>{
-if(e.target==modal){modal.style.display="none";}
+modals.forEach(modal=>{if(e.target==modal){modal.style.display="none";}});
 });
+
+// Cascade scroll animation
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){entry.target.classList.add('show');}
 });
+},{threshold:0.2});
+document.querySelectorAll('.card').forEach(card=>observer.observe(card));
 </script>
 
 </body>
